@@ -64,6 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             // Redirect user to welcome page
                             header("location: homepage.php");
+                            header("Refresh:0");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
