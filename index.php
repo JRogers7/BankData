@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <body>
   <form method="POST">
     <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
-    <div class = "titletext" align="center">BANKDATA</div>
+    <div class = "titletext" align="center">BANKDATA TEST</div>
     <h2 align="center">Log In</h2>
     <p align = "center">New here? <a href = "" style="text-decoration: none;">Sign up now!</a></p>  <!--fix this link when signup page created-->
     <div class="d-grid gap-2 col-6 mx-auto">
