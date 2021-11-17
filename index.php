@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
         $sql = "SELECT username, password FROM Customer WHERE username = ?";
-        echo($sql);
+        echo($sql);                                                   //REMOVE ONCE TROUBLESHOOTING DONE
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["username"] = $username;
-
+                            echo("Your username and password are correct!");
                             // Redirect user to welcome page
                             header("location: homepage.php");
                         } else{
