@@ -23,6 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter username.";
     } else{
         $username = trim($_POST["username"]);
+        echo($username);
     }
 
     // Check if password is empty
@@ -30,6 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
+        echo($password);
     }
 
     // Validate credentials
