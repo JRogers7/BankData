@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter username.";
     } else{
         $username = trim($_POST["username"]);
-        echo($username);
+        echo($username);                                              //REMOVE ONCE TROUBLESHOOTING DONE
     }
 
     // Check if password is empty
@@ -31,13 +31,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
-        echo($password);
+        echo($password);                                              //REMOVE ONCE TROUBLESHOOTING DONE
     }
 
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
         $sql = "SELECT username, password FROM Customer WHERE username = ?";
+        echo($sql);
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
