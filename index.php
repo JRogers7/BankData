@@ -23,7 +23,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter username.";
     } else{
         $username = trim($_POST["username"]);
-        echo($username);                                              //REMOVE ONCE TROUBLESHOOTING DONE
     }
 
     // Check if password is empty
@@ -31,14 +30,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
-        echo($password);                                              //REMOVE ONCE TROUBLESHOOTING DONE
     }
 
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
         $sql = "SELECT username, password FROM Customer WHERE username = ?";
-        echo($sql);                                                   //REMOVE ONCE TROUBLESHOOTING DONE
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -56,7 +53,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $username, $hashed_password);
-                    echo($hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -65,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["username"] = $username;
-                            echo("Your username and password are correct!");
+
                             // Redirect user to welcome page
                             header("location: homepage.php");
                         } else{
