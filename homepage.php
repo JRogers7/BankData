@@ -22,6 +22,6 @@
 
 <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
     <div class = "titletext" align="center">BANKDATA</div>
-    <div><h3 href ="logout.php">Log Out</div>
+    <div><h3> <a href ="logout.php">Log Out</a></h3></div>
     <br><br><br>
     <h1>Welcome!</h1>
