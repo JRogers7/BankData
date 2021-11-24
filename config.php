@@ -1,5 +1,6 @@
 <?php
 
+//dont touch this, its important
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'jonatha1_jonathan');
 define('DB_PASSWORD', 'i#ZL9qFHS@ZQ');

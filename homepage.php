@@ -19,9 +19,15 @@
           font-size:48;
       }
   </style>
+<body>
+    
 
 <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
     <div class = "titletext" align="center">BANKDATA</div>
     <div><h3> <a href ="logout.php">Log Out</a></h3></div>
     <br><br><br>
-    <h1>Welcome!</h1>
+    
+    <?php
+        echo "<h2>Welcome, " . $username . "</h2>";
+    ?>
+</body>
