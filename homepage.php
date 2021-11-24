@@ -1,12 +1,8 @@
 <?php require "header.php"; ?>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 </head>
 
@@ -15,38 +11,46 @@
         margin: auto;
         width: 80%;
     }
-    .bankicon{
-        font-size:100;
-        margin-bottom:10;
+
+    .bankicon {
+        font-size: 100;
+        margin-bottom: 10;
     }
+
     .titletext {
         font-family: Georgia, 'Times New Roman', Times, serif;
         margin-bottom: 35;
-        font-size:32;
-     }
-     #checkinginfo {
-         width: 40%;
-         height: 25%;
-         display: inline-block;
-         margin-right: 15px;
-     }
-     #checkingbalance {
-         font-size: 5vw;
-     }
-     #creditinfo {
-         width: 40%;
-         height: 25%;
-         display: inline-block;
-         margin-left: 15px;
-     }
-     #creditbalance {
-         font-size: 5vw;
-     }
-     #optionbuttons {
-         width: 40%;
-         display: inline-block;
-     }
-     .accordion {
+        font-size: 32;
+    }
+
+    #checkinginfo {
+        width: 40%;
+        height: 25%;
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    #checkingbalance {
+        font-size: 5vw;
+    }
+
+    #creditinfo {
+        width: 40%;
+        height: 25%;
+        display: inline-block;
+        margin-left: 15px;
+    }
+
+    #creditbalance {
+        font-size: 5vw;
+    }
+
+    #optionbuttons {
+        width: 40%;
+        display: inline-block;
+    }
+
+    .accordion {
         background-color: rgb(212, 212, 212);
         color: #444;
         cursor: pointer;
@@ -59,7 +63,7 @@
         font-size: larger;
         font-weight: bold;
         border-radius: 8px;
-        margin-top:6px;
+        margin-top: 6px;
     }
 
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -76,7 +80,7 @@
         overflow: hidden;
         transition: max-height 0.4s ease-out;
         width: 60%;
-        
+
     }
 
     .accordion:after {
@@ -86,7 +90,7 @@
         color: #777;
         float: right;
         margin-left: 5px;
-        padding-top:5px;
+        padding-top: 5px;
     }
 
     .active:after {
@@ -94,56 +98,65 @@
         /* Unicode for minus sign (-) */
     }
 </style>
+
 <body>
+    <?php
+    if (isset($_SESSION["username"])) {
+        $loggedOnUser = $_SESSION["username"];
+    }
+    ?>
     <div>
-        <h3 style = "position: absolute; right: 15px; padding-top: 15px;"><a href ="logout.php">Log Out</a></h1>  <!-- link up to existing logout functionality code when implemented-->
+        <h3 style="position: absolute; right: 15px; padding-top: 15px;"><a href="logout.php">Log Out</a></h1> <!-- link up to existing logout functionality code when implemented-->
     </div>
-    <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
-    <div class = "titletext" align="center">BANKDATA</div>
-    <div align = "center">
-    <div class = "shadow p-3 mb-5 bg-white rounded" id = "checkinginfo">
-        <h2 align = "center" style = "font-size: 2vw;">Current Checking Balance</h2> <br>
-        <h1 align = "center" id = "checkingbalance"><strong>$0.00</strong></h1>
+    <div class="bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
+    <div class="titletext" align="center">BANKDATA</div>
+    <div align="center">
+        <?php
+        echo "<h3>Welcome, $loggedOnUser</h3>";
+        ?>
+        <div class="shadow p-3 mb-5 bg-white rounded" id="checkinginfo">
+            <h2 align="center" style="font-size: 2vw;">Current Checking Balance</h2> <br>
+            <h1 align="center" id="checkingbalance"><strong>$0.00</strong></h1>
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded" id="creditinfo">
+            <h2 align="center" style="font-size: 2vw;">Current Credit Card Balance</h2> <br>
+            <h1 align="center" id="creditbalance"><strong>$0.00</strong></h1>
+        </div>
+        <div id="optionbuttons" style="margin-right: 15px;">
+            <button class="accordion">Deposit Cash</button>
+            <div class="panel">
+                <p> Deposit Money Using This Button
+                </p>
+            </div>
+            <button class="accordion">Withdraw Cash</button>
+            <div class="panel">
+                <p> Withdraw Money Using This Button
+                </p>
+            </div>
+            <button class="accordion">Transfer Money</button>
+            <div class="panel">
+                <p> Transfer Money Using This Button
+                </p>
+            </div>
+        </div>
+        <div id="optionbuttons" style="margin-left: 15px;">
+            <button class="accordion">Make Payment</button>
+            <div class="panel">
+                <p> Make a payment on your Credit Card with this button.
+                </p>
+            </div>
+            <button class="accordion">View Credit Card Information</button>
+            <div class="panel">
+                <p> View your credit card information.
+                </p>
+            </div>
+            <button class="accordion">Request New Card</button>
+            <div class="panel">
+                <p> Change your credit card number.
+                </p>
+            </div>
+        </div>
     </div>
-    <div class = "shadow p-3 mb-5 bg-white rounded" id = "creditinfo">
-        <h2 align = "center" style = "font-size: 2vw;">Current Credit Card Balance</h2> <br>
-        <h1 align = "center" id = "creditbalance"><strong>$0.00</strong></h1>
-    </div>
-    <div id = "optionbuttons" style = "margin-right: 15px;">
-        <button class="accordion">Deposit Cash</button>
-        <div class="panel">
-            <p> Deposit Money Using This Button
-            </p>
-        </div>
-        <button class="accordion">Withdraw Cash</button>
-        <div class="panel">
-            <p> Withdraw Money Using This Button
-            </p>
-        </div>
-        <button class="accordion">Transfer Money</button>
-        <div class="panel">
-            <p> Transfer Money Using This Button
-            </p>
-        </div>
-    </div>
-    <div id = "optionbuttons" style = "margin-left: 15px;">
-        <button class="accordion">Make Payment</button>
-        <div class="panel">
-            <p> Make a payment on your Credit Card with this button.
-            </p>
-        </div>
-        <button class="accordion">View Credit Card Information</button>
-        <div class="panel">
-            <p> View your credit card information.
-            </p>
-        </div>
-        <button class="accordion">Request New Card</button>
-        <div class="panel">
-            <p> Change your credit card number.
-            </p>
-        </div>
-    </div>
-</div>
 
 </body>
 <script>
@@ -151,7 +164,7 @@
     var i;
 
     for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
+        acc[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
@@ -162,9 +175,3 @@
         });
     }
 </script>
-    <?php
-        if (isset($_SESSION["username"])) {
-            $loggedOnUser = $_SESSION["username"];
-        }
-    ?>
-    
