@@ -1,5 +1,3 @@
-<?php require "header.php"; ?>
-
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
@@ -9,7 +7,6 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 </head>
-
 <style>
     body {
         margin: auto;
@@ -96,7 +93,7 @@
 </style>
 <body>
     <div>
-        <h3 style = "position: absolute; right: 15px; padding-top: 15px;"><a href ="logout.php">Log Out</h1>  <!-- link up to existing logout functionality code when implemented-->
+        <h3 style = "position: absolute; right: 15px; padding-top: 15px;">Log Out</h1>  <!-- link up to existing logout functionality code when implemented-->
     </div>
     <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
     <div class = "titletext" align="center">BANKDATA</div>
@@ -162,9 +159,3 @@
         });
     }
 </script>
-    <?php
-        if (isset($_SESSION["username"])) {
-            $loggedOnUser = $_SESSION["username"];
-        }
-    ?>
-    
