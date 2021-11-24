@@ -28,7 +28,7 @@
     <br><br><br>
     
     <?php
-        
+        session_start();
         echo "<h2>Welcome, " . $_SESSION['username'] . "</h2>";
     ?>
 </body>
