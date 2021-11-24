@@ -96,7 +96,7 @@
 </style>
 <body>
     <div>
-        <h3 style = "position: absolute; right: 15px; padding-top: 15px;"><a href ="logout.php">Log Out</h1>  <!-- link up to existing logout functionality code when implemented-->
+        <h3 style = "position: absolute; right: 15px; padding-top: 15px;"><a href ="logout.php">Log Out</a></h1>  <!-- link up to existing logout functionality code when implemented-->
     </div>
     <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
     <div class = "titletext" align="center">BANKDATA</div>
