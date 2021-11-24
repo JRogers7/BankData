@@ -28,6 +28,7 @@
     <br><br><br>
     
     <?php
-        echo "<h2>Welcome, " . $username . "</h2>";
+        
+        echo "<h2>Welcome, " . $_SESSION['username'] . "</h2>";
     ?>
 </body>
