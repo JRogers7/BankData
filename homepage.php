@@ -1,3 +1,5 @@
+<?php require "header.php"; ?>
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
@@ -22,13 +24,15 @@
 <body>
     
 
-<div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
+    <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
     <div class = "titletext" align="center">BANKDATA</div>
+    <?php
+        if (isset($_SESSION["username"])) {
+            $loggedOnUser = $_SESSION["username"];
+        }
+    ?>
+    <div>Welcome, <?php echo $loggedOnUser; ?></div>
     <div><h3> <a href ="logout.php">Log Out</a></h3></div>
     <br><br><br>
     
-    <?php
-        session_start();
-        echo "<h2>Welcome, " . $_SESSION['username'] . "</h2>";
-    ?>
 </body>
