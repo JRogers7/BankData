@@ -163,10 +163,80 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Passwords do not match.";
         }
     }
+    // Validate account user wants to open
+    if (empty(trim($_POST["acctType"]))) {
+        $acct_type_err = "Please select an account.";
+    }
+    else if ((trim($_POST["acctType"])) == "checking"){
+        $sql = "SELECT username FROM Debit_Card where username = ?";
+
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $username);
+
+            $param_acctType = trim($_POST["acctType"]);
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                /* store result */
+                mysqli_stmt_store_result($stmt);
+
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    $acct_type_err = "This account already has an existing checking account.";
+                }
+                else {
+                    $acct_type = trim($_POST["acctType"]);
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+
+    }
+    else if ((trim($_POST["acctType"])) == "credit") {
+        $sql = "SELECT username FROM Credit_Card where username = ?";
+
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $username);
+
+            $param_acctType = trim($_POST["acctType"]);
+
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                /* store result */
+                mysqli_stmt_store_result($stmt);
+
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    $acct_type_err = "This account already has an existing credit card account.";
+                }
+                else {
+                    $acct_type = trim($_POST["acctType"]);
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+    }
 
     // Check input errors before inserting in database
     if(empty($name_err) && empty($email_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
+        $balance = 500;
+        $overdraft_amt = 35;
+        $expiration = '2025-01-01';
+        $cvvDigits = 3;
+        $cardNumDigits = 16;
+        $param_cvv;
+        $param_cardNum;
+        $param_balance;
+        $param_overdraft_amt;
+        $param_expiration;
+        $cvv = rand(pow(10, $cvvDigits-1), pow(10, $cvvDigits)-1);
+        $cardNum = rand(pow(10, $cardNumDigits-1), pow(10, $cardNumDigits)-1);
         // Prepare an insert statement
         $sql = "INSERT INTO Customer (name, email, ssn, pin, username, password) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -192,6 +262,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Close statement
             mysqli_stmt_close($stmt);
+        }
+        if ($acct_type == "checking") {
+            $sql = "INSERT INTO Debit_Card (username, card_num, cvv, balance, overdraft_amount, expiration) VALUES (?, ?, ?, ?, ?, ?)";
+
+            if ($stmt = mysqli_prepare($link, $sql)) {
+                mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_overdraft_amt, $param_expiration);
+
+                $param_username = $username;
+                $param_cardNum = $cardNum;
+                $param_cvv = $cvv;
+                $param_balance = $balance;
+                $param_overdraft_amt = $overdraft_amt;
+                $param_expiration = $expiration;
+
+                if(mysqli_stmt_execute($stmt)){
+                    // Redirect to login page
+                    header("location: index.php");
+                } else{
+                    echo "Oops! Something went wrong. Please try again later.";
+                }
+            }
         }
     }
 
@@ -271,7 +362,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div>
                 <label for="acctType">What type of account would you like to open?</label>
-                <select class = "form-control" id = "acctType" class = "acctType" required>
+                <select class = "form-control" id = "acctType" class = "acctType" name = "acctType" required>
                     <option value=""></option>
                     <option value = "checking">Checking Account</option>
                     <option value = "credit">Credit Card Account</option>
