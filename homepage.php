@@ -114,6 +114,7 @@
         <?php
         echo "<h3>Welcome, $loggedOnUser</h3>";
         ?>
+        <br>
         <div class="shadow p-3 mb-5 bg-white rounded" id="checkinginfo">
             <h2 align="center" style="font-size: 2vw;">Current Checking Balance</h2> <br>
             <h1 align="center" id="checkingbalance"><strong>$0.00</strong></h1>
@@ -122,7 +123,7 @@
             <h2 align="center" style="font-size: 2vw;">Current Credit Card Balance</h2> <br>
             <h1 align="center" id="creditbalance"><strong>$0.00</strong></h1>
         </div>
-        <div id="optionbuttons" style="margin-right: 15px;">
+        <div id="optionbuttons" style="margin-right: 15px; vertical-align: top;">
             <button class="accordion">Deposit Cash</button>
             <div class="panel">
                 <p> Deposit Money Using This Button
