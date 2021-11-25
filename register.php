@@ -202,139 +202,110 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+
+    <style>
+        .bankicon {
+            font-size: 150;
+            margin-bottom: 10;
+        }
+
+        .titletext {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-bottom: 35;
+            font-size: 48;
+        }
+    </style>
 </head>
-<style>
-    .bankicon{
-        font-size:150;
-        margin-bottom:10;
-     }
-    .titletext {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        margin-bottom: 35;
-        font-size:48;
-    }
-</style>
-</head>
+
 <body>
-    
-<form method="POST">
-    <div class = "bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
-    <div class = "titletext" align="center">BANKDATA TEST</div>
-    <h2 align="center">Create an Account</h2>
-    <p align = "center">Already have an account? <a href = "index.php" style="text-decoration: none;">Sign in now!</a></p>  <!--fix this link when signup page created-->
-    <div class="d-grid gap-2 col-6 mx-auto">
-    <div class="form-floating">
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        name="name"
-        placeholder="Enter Your Name"
-      >
-      <label for="name" style="font-size:large;">Name</label>
-    </div>
-    <div class="form-floating">
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter Email"
-      >
-      <label for="email" style="font-size:large;"><i class = "bi bi-envelope"></i> Email</label>
-    </div>
-    <div class="form-floating">
-      <input
-        type="text"
-        class="form-control"
-        id="ssn"
-        name="ssn"
-        placeholder="Enter Your SSN"
-      >
-      <label for="ssn" style="font-size:large;"> Social Security Number</label>
-    </div>
-    <div class="form-floating">
-      <input
-        type="text"
-        class="form-control"
-        id="pin"
-        name="pin"
-        placeholder="Enter a PIN"
-      >
-      <label for="pin" style="font-size:large;"> Create a PIN Number</label>
-    </div>
-    <div class="form-floating">
-      <input
-        type="text"
-        class="form-control"
-        id="username"
-        name="username"
-        placeholder="Enter Username"
-      >
-      <label for="username" style="font-size:large;"><i class = "bi bi-person"></i> Username</label>
-    </div>
-  
-    <div class="form-floating">
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="Enter Password"
-      >
-      <label for="password" style="font-size:large;"><i class = "bi bi-lock"></i> Password</label>
-      
-    </div>
-    <div class="form-floating">
-      <input
-        type="password"
-        class="form-control"
-        id="confirm_password"
-        name="confirm_password"
-        placeholder="Confirm Password"
-      >
-      <label for="confirm_password" style="font-size:large;"><i class = "bi bi-lock"></i> Confirm Password</label>
-    </div>
-    <div class="d-grid gap-2 col-6 mx-auto">
-    <a onClick = "showHidePassword();" href ="#" style="text-align: right; text-decoration:none;" id = "show-hide"><i class = "bi bi-eye" id="show_eye"></i><i>Show</i></a>
-  </div>
-  
-  
-    <div class="d-grid gap-2 col-4 mx-auto">
-      <button type="sumbit" class="btn btn-primary btn-lg" style="font-weight:bold;">Create Account</button>
-      
-    </div>
-      
-  </form>
-  </body>
-  <script>
-    function showHidePassword() {
-      var x = document.getElementById("password");
-      var y = document.getElementById("confirm_password");
-      var eye = document.getElementById("show_eye");
-  
-      if (x.type === "password") {
-        x.type = "text";
-        y.type = "text";
-        document.getElementById('show_eye').className = "bi bi-eye-slash";
-        document.getElementById('show-hide').innerHTML = "<i class = 'bi bi-eye-slash' id='show_eye'>Hide";
-      }
-      else if (x.type === "text") {
-        x.type = "password";
-        y.type = "password";
-        document.getElementById('show_eye').className = "bi bi-eye";
-        document.getElementById('show-hide').innerHTML = "<i class = 'bi bi-eye' id='show_eye'>Show";
-      }
-    }
-  </script>
+
+    <form method="POST">
+        <div class="bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
+        <div class="titletext" align="center">BANKDATA TEST</div>
+        <h2 align="center">Create an Account</h2>
+        <p align="center">Already have an account? <a href="index.php" style="text-decoration: none;">Sign in now!</a>
+        </p>
+        <!--fix this link when signup page created-->
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
+                <label for="name" style="font-size:large;">Name</label>
+            </div>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                <label for="email" style="font-size:large;"><i class="bi bi-envelope"></i> Email</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="ssn" name="ssn" placeholder="Enter Your SSN" required>
+                <label for="ssn" style="font-size:large;"> Social Security Number</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="pin" name="pin" placeholder="Enter a PIN" required>
+                <label for="pin" style="font-size:large;"> Create a PIN Number</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                <label for="username" style="font-size:large;"><i class="bi bi-person"></i> Username</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                <label for="password" style="font-size:large;"><i class="bi bi-lock"></i> Password</label>
+
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password"
+                    placeholder="Confirm Password" required>
+                <label for="confirm_password" style="font-size:large;"><i class="bi bi-lock"></i> Confirm
+                    Password</label>
+            </div>
+            <div align = "right">
+                <a onClick="showHidePassword();" href="#" style="text-decoration:none;"
+                    id="show-hide"><i class="bi bi-eye" id="show_eye"></i><i>Show</i></a>
+            </div>
+            <div>
+                <label for="acctType">What type of account would you like to open?</label>
+                <select class = "form-control" id = "acctType" class = "acctType" required>
+                    <option value=""></option>
+                    <option value = "checking">Checking Account</option>
+                    <option value = "credit">Credit Card Account</option>
+                </select>
+            </div>
+
+
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <button type="sumbit" class="btn btn-primary btn-lg" style="font-weight:bold;">Create Account</button>
+
+            </div>
+
+    </form>
 </body>
+<script>
+    function showHidePassword() {
+        var x = document.getElementById("password");
+        var y = document.getElementById("confirm_password");
+        var eye = document.getElementById("show_eye");
+
+        if (x.type === "password") {
+            x.type = "text";
+            y.type = "text";
+            document.getElementById('show_eye').className = "bi bi-eye-slash";
+            document.getElementById('show-hide').innerHTML = "<i class = 'bi bi-eye-slash' id='show_eye'>Hide";
+        }
+        else if (x.type === "text") {
+            x.type = "password";
+            y.type = "password";
+            document.getElementById('show_eye').className = "bi bi-eye";
+            document.getElementById('show-hide').innerHTML = "<i class = 'bi bi-eye' id='show_eye'>Show";
+        }
+    }
+</script>
+</body>
+
 </html>
