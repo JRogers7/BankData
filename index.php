@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <style>
       .bankicon{
-          font-size:150;
+          font-size:120;
           margin-bottom:10;
       }
       .titletext {

@@ -189,7 +189,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $acct_type = trim($_POST["acctType"]);
                 }
             } else{
-                echo "trying to set the account type to checking is where the error happens";
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -219,7 +218,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $acct_type = trim($_POST["acctType"]);
                 }
             } else{
-                echo "trying to set account type to credit is where the error happens";
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -231,16 +229,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($name_err) && empty($email_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
-        $balance = 500;
+        $balance = 100;
         $overdraft_amt = 35;
         $expiration = '2025-01-01';
         $cvvDigits = 3;
         $cardNumDigits = 16;
-        $param_cvv;
-        $param_cardNum;
-        $param_balance;
-        $param_overdraft_amt;
-        $param_expiration;
+        $credit_limit = 500;
+        $grace_period = 30;
+        $apr = 17.99;
+        $param_cvv; $param_cardNum; $param_balance; $param_overdraft_amt; $param_expiration;
+        $param_creditLimit; $param_gracePeriod; $param_apr; $param_percentage;
         $cvv = rand(pow(10, $cvvDigits-1), pow(10, $cvvDigits)-1);
         $cardNum = rand(pow(10, $cardNumDigits-1), pow(10, $cardNumDigits)-1);
         // Prepare an insert statement
@@ -264,7 +262,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("location: index.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
-                echo "after inserting into customer is where the error happens.";
             }
 
             // Close statement
@@ -272,7 +269,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         if ($acct_type == "checking") {
             $sql = "INSERT INTO Debit_Card (username, card_num, cvv, balance, overdraft_amount, expiration) VALUES (?, ?, ?, ?, ?, ?)";
-            echo "We got into trying to insert debit card!";
+
             if ($stmt = mysqli_prepare($link, $sql)) {
                 mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_overdraft_amt, $param_expiration);
 
@@ -288,7 +285,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     header("location: index.php");
                 } else{
                     echo "Oops! Something went wrong. Please try again later.";
-                    echo $param_username, $param_cardNum, $param_cvv, $param_balance, $param_overdraft_amt, $param_expiration;
+                }
+            }
+        }
+        else if ($acct_type == "credit") {
+            $sql = "INSERT INTO Credit_Card (username, card_num, cvv, balance, grace_period, apr, expiration) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            if ($stmt = mysqli_prepare($link, $sql)) {
+                mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_gracePeriod, $param_apr, $param_expiration);
+
+                $param_username = $username;
+                $param_cardNum = $cardNum;
+                $param_cvv = $cvv;
+                $param_balance = $balance;
+                $$param_gracePeriod = $grace_period;
+                $param_apr = $apr;
+                $param_expiration = $expiration;
+
+                if(mysqli_stmt_execute($stmt)){
+                    // Redirect to login page
+                    header("location: index.php");
+                } else{
+                    echo "Oops! Something went wrong. Please try again later.";
                 }
             }
         }
@@ -307,7 +325,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <style>
         .bankicon {
-            font-size: 150;
+            font-size: 120;
             margin-bottom: 10;
         }
 
