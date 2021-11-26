@@ -270,6 +270,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             mysqli_stmt_close($stmt);
         }
+        if ($acct_type == "credit") {
+            $sql = "INSERT INTO Credit_Card (username, card_num, cvv, balance, credit_limit, grace_period, apr, expiration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            if ($stmt = mysqli_prepare($link, $sql)) {
+                mysqli_stmt_bind_param($stmt, "ssssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_creditLimit, $param_gracePeriod, $param_apr, $param_expiration);
+
+                $param_username = $username;
+                $param_cardNum = $cardNum;
+                $param_cvv = $cvv;
+                $param_balance = $balance;
+                $param_creditLimit = $credit_limit;
+                $$param_gracePeriod = $grace_period;
+                $param_apr = $apr;
+                $param_expiration = $expiration;
+
+                echo $param_username, $param_cardNum, $param_cvv, $param_balance, $param_creditLimit, $param_gracePeriod, $param_apr, $param_expiration;
+
+                if(mysqli_stmt_execute($stmt)){
+                    // Redirect to login page
+                    header("location: index.php");
+                } else{
+                    echo "Oops! Something went wrong trying to create a credit card. Please try again later.";
+                }
+            }
+        }
         if ($acct_type == "checking") {
             $sql = "INSERT INTO Debit_Card (username, card_num, cvv, balance, overdraft_amount, expiration) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -291,29 +316,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             }
         }
-        if ($acct_type == "credit") {
-            $sql = "INSERT INTO Credit_Card (username, card_num, cvv, balance, credit_limit, grace_period, apr, expiration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-            if ($stmt = mysqli_prepare($link, $sql)) {
-                mysqli_stmt_bind_param($stmt, "ssssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_creditLimit, $param_gracePeriod, $param_apr, $param_expiration);
-
-                $param_username = $username;
-                $param_cardNum = $cardNum;
-                $param_cvv = $cvv;
-                $param_balance = $balance;
-                $param_creditLimit = $credit_limit;
-                $$param_gracePeriod = $grace_period;
-                $param_apr = $apr;
-                $param_expiration = $expiration;
-
-                if(mysqli_stmt_execute($stmt)){
-                    // Redirect to login page
-                    header("location: index.php");
-                } else{
-                    echo "Oops! Something went wrong trying to create a credit card. Please try again later.";
-                }
-            }
-        }
+        
     }
 
     // Close connection
