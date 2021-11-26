@@ -187,6 +187,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $acct_type = trim($_POST["acctType"]);
                 }
             } else{
+                echo "trying to set the account type to checking is where the error happens";
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -216,6 +217,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $acct_type = trim($_POST["acctType"]);
                 }
             } else{
+                echo "trying to set account type to credit is where the error happens";
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -260,6 +262,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("location: index.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
+                echo "after inserting into customer is where the error happens.";
             }
 
             // Close statement
