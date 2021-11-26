@@ -221,6 +221,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Close statement
             mysqli_stmt_close($stmt);
+        }
     }
 
     // Check input errors before inserting in database
