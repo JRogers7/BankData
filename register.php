@@ -175,6 +175,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($stmt, "s", $username);
 
             $param_acctType = trim($_POST["acctType"]);
+            echo $param_acctType;
+
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
@@ -204,7 +206,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($stmt, "s", $username);
 
             $param_acctType = trim($_POST["acctType"]);
-
+            echo $param_acctType;
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
