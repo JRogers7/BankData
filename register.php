@@ -272,7 +272,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         if ($acct_type == "checking") {
             $sql = "INSERT INTO Debit_Card (username, card_num, cvv, balance, overdraft_amount, expiration) VALUES (?, ?, ?, ?, ?, ?)";
-
+            echo "We got into trying to insert debit card!";
             if ($stmt = mysqli_prepare($link, $sql)) {
                 mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_overdraft_amt, $param_expiration);
 
