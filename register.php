@@ -264,7 +264,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 header("location: index.php");
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Something went wrong trying to insert the person. Please try again later.";
             }
 
             // Close statement
@@ -287,7 +287,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Redirect to login page
                     header("location: index.php");
                 } else{
-                    echo "Oops! Something went wrong. Please try again later.";
+                    echo "Oops! Something went wrong trying to make a debit card. Please try again later.";
                 }
             }
         }
@@ -310,7 +310,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Redirect to login page
                     header("location: index.php");
                 } else{
-                    echo "Oops! Something went wrong. Please try again later.";
+                    echo "Oops! Something went wrong trying to create a credit card. Please try again later.";
                 }
             }
         }
