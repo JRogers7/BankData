@@ -390,7 +390,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div>
                 <label for="acctType">What type of account would you like to open?</label>
                 <select class = "form-control" id = "acctType" class = "acctType" name = "acctType" required>
-                    <option value=""></option>
+                    <option value="" selected></option>
                     <option value = "checking">Checking Account</option>
                     <option value = "credit">Credit Card Account</option>
                 </select>
