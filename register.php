@@ -192,6 +192,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Close statement
             mysqli_stmt_close($stmt);
+        }
 
     }
     else if ((trim($_POST["acctType"])) == "credit") {
@@ -290,9 +291,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -398,5 +396,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 </script>
 </body>
-
-</html>
