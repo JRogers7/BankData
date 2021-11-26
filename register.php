@@ -283,6 +283,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     header("location: index.php");
                 } else{
                     echo "Oops! Something went wrong. Please try again later.";
+                    echo $param_username, $param_cardNum, $param_cvv, $param_balance, $param_overdraft_amt, $param_expiration;
                 }
             }
         }
