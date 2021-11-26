@@ -281,7 +281,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $param_cvv = $cvv;
                 $param_balance = $balance;
                 $param_creditLimit = $credit_limit;
-                $$param_gracePeriod = $grace_period;
+                $param_gracePeriod = $grace_period;
                 $param_apr = $apr;
                 $param_expiration = $expiration;
 
