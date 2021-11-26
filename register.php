@@ -291,7 +291,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             }
         }
-        else if ($acct_type == "credit") {
+        if ($acct_type == "credit") {
             $sql = "INSERT INTO Credit_Card (username, card_num, cvv, balance, credit_limit, grace_period, apr, expiration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             if ($stmt = mysqli_prepare($link, $sql)) {
