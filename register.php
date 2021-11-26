@@ -238,7 +238,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $grace_period = 30;
         $apr = 17.99;
         $param_cvv; $param_cardNum; $param_balance; $param_overdraft_amt; $param_expiration;
-        $param_creditLimit; $param_gracePeriod; $param_apr; $param_percentage;
+        $param_creditLimit; $param_gracePeriod; $param_apr;
         $cvv = rand(pow(10, $cvvDigits-1), pow(10, $cvvDigits)-1);
         $cardNum = rand(pow(10, $cardNumDigits-1), pow(10, $cardNumDigits)-1);
         // Prepare an insert statement
@@ -289,15 +289,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }
         else if ($acct_type == "credit") {
-            $sql = "INSERT INTO Credit_Card (username, card_num, cvv, balance, grace_period, apr, expiration) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO Credit_Card (username, card_num, cvv, balance, credit_limit, grace_period, apr, expiration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             if ($stmt = mysqli_prepare($link, $sql)) {
-                mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_gracePeriod, $param_apr, $param_expiration);
+                mysqli_stmt_bind_param($stmt, "ssssssss", $param_username, $param_cardNum, $param_cvv, $param_balance, $param_creditLimit, $param_gracePeriod, $param_apr, $param_expiration);
 
                 $param_username = $username;
                 $param_cardNum = $cardNum;
                 $param_cvv = $cvv;
                 $param_balance = $balance;
+                $param_creditLimit = $credit_limit;
                 $$param_gracePeriod = $grace_period;
                 $param_apr = $apr;
                 $param_expiration = $expiration;
