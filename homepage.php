@@ -1,7 +1,7 @@
 <?php require "header.php"; require "config.php"; ?>
 
 <?php
-    $sql = "SELECT balance from Debit_Card WHERE username = '".$loggedOnUser."'";
+    $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
     $res = mysqli_query($link, $sql);
     echo "This is being run successfully";
     echo $sql;
