@@ -5,4 +5,5 @@
     $depositAmt = $_GET["depositAmt"];
 
     echo $depositAmt;
+    echo "We made it into the deposit file!";
 ?>
