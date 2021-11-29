@@ -156,7 +156,7 @@
             <form action="deposit.php" method = "get">
                 <div class = "form-group form-inline">
                     <label for="depositAmt">Deposit Amount: </label>
-                    <input type="text" id="depositAmt">
+                    <input type="text" id="depositAmt" name ="depositAmt">
                     <button type = "submit" class = "btn btn-secondary">Deposit</button>
                 </div>
             </form>
@@ -166,7 +166,7 @@
             <form action="withdraw.php">
                 <div class = "form-group form-inline">
                     <label for="withdrawAmt">Withdraw Amount: </label>
-                    <input type="text" id="withdrawAmt">
+                    <input type="text" id="withdrawAmt" name ="withdrawAmt">
                     <button type = "submit" class = "btn btn-secondary">Withdraw</button>
                 </div>
             </form>
@@ -179,7 +179,7 @@
                     <input type="text" id="receiverUsername">
                     <br>
                     <label for="transferAmt">Amount to Transfer: </label>
-                    <input type="text" id="transferAmt">
+                    <input type="text" id="transferAmt"name="transferAmt">
                     <button type = "submit" class = "btn btn-secondary">Transfer</button>
                 </div>
             </form>
@@ -191,7 +191,7 @@
             <form action="payment.php">
                 <div class = "form-group form-inline">
                     <label for="paymentAmt">Payment Amount: </label>
-                    <input type="text" id="paymentAmt">
+                    <input type="text" id="paymentAmt" name="paymentAmt">
                     <button type = "submit" class = "btn btn-secondary">Pay Card</button>
                 </div>
             </form>
@@ -211,7 +211,7 @@
             <form action="newcard.php">
                 <div class = "form-group form-inline">
                     <p>Clicking the 'Request New Card' button below will change your card number and CVV, but your balance, APR, and other details will remain the same.</p>
-                    <button type = "submit" class = "btn btn-secondary">Request New Card</button>
+                    <button type = "submit" class = "btn btn-secondary" name = "getNewCard">Request New Card</button>
                 </div>
             </form>
         </div>
