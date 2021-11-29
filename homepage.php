@@ -1,4 +1,4 @@
-<?php require "header.php"; ?>
+<?php require "header.php"; require "config.php"; ?>
 
 <?php
     $sql = "SELECT balance from Debit_Card WHERE username = ?";
