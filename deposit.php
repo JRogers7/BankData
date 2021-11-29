@@ -2,7 +2,7 @@
 <?php require "header.php"; require "config.php" ?>
 
 <?php
-    $depositAmt = $_GET["depositAmt"];
+    $depositAmt = $_POST["depositAmt"];
 
     echo $depositAmt;
     echo "We made it into the deposit file!";
