@@ -3,15 +3,18 @@
 <?php
     $sql = "SELECT balance from Debit_Card WHERE username = '".$loggedOnUser."'";
     $res = mysqli_query($link, $sql);
+    echo "This is being run successfully";
 
     if ($res) {
         while ($newArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
             $checkingBalance = $newArray['balance'];
+            echo $checkingBalance;
         }
     }
     else {
         $checkingBalance = "Could not retrieve balance.";
     }
+    echo $checkingBalance;
 ?>
 
 <head>
