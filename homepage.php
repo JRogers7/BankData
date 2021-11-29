@@ -1,5 +1,23 @@
 <?php require "header.php"; ?>
 
+<?php
+    $sql = "SELECT balance from Debit_Card WHERE username = ?";
+
+    if($stmt = mysqli_prepare($link, $sql)) {
+        mysqli_stmt_bind_param($stmt, "s", $param_loggedOnUser);
+
+        $param_loggedOnUser = $loggedOnUser;
+
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_store_result($stmt);
+
+            $checkingBalance = mysqli_stmt_fetch($stmt);
+
+            echo $checkingBalance;
+        }
+    }
+?>
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
