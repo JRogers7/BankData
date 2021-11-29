@@ -4,6 +4,7 @@
     $sql = "SELECT balance from Debit_Card WHERE username = '".$loggedOnUser."'";
     $res = mysqli_query($link, $sql);
     echo "This is being run successfully";
+    echo $sql;
 
     if ($res) {
         while ($newArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
