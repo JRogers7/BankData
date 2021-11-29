@@ -15,7 +15,7 @@
         }
     }
     else {
-        $checkingBalance = "Not available.";
+        $checkingBalance = "N/A";
     }
 ?>
 <?php
