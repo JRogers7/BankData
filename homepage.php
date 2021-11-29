@@ -1,4 +1,9 @@
 <?php require "header.php"; require "config.php"; ?>
+<?php
+    if (isset($_SESSION["username"])) {
+        $loggedOnUser = $_SESSION["username"];
+    }
+    ?>
 
 <?php
     $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
@@ -118,11 +123,6 @@
 </style>
 
 <body>
-    <?php
-    if (isset($_SESSION["username"])) {
-        $loggedOnUser = $_SESSION["username"];
-    }
-    ?>
     <div>
         <h3 style="position: absolute; right: 15px; padding-top: 15px;"><a href="logout.php">Log Out</a></h1> <!-- link up to existing logout functionality code when implemented-->
     </div>
