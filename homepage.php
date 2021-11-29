@@ -9,7 +9,7 @@
     $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
     $res = mysqli_query($link, $sql);
 
-    if ($res) {
+    if (mysqli_num_rows($res) > 0) {
         while ($newArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
             $checkingBalance = $newArray['balance'];
         }
@@ -22,7 +22,7 @@
     $sql = "SELECT balance from Credit_Card WHERE username = '{$loggedOnUser}'";
     $credit_res = mysqli_query($link, $sql);
 
-    if ($credit_res) {
+    if (mysqli_num_rows($credit_res) > 0) {
         while ($newCreditArray = mysqli_fetch_array($credit_res, MYSQLI_ASSOC)) {
             $creditBalance = $newCreditArray['balance'];
         }
@@ -144,11 +144,11 @@
         <br>
         <div class="shadow p-3 mb-5 bg-white rounded" id="checkinginfo">
             <h2 align="center" style="font-size: 2vw;">Current Checking Balance</h2> <br>
-            <h1 align="center" id="checkingbalance"><strong>$<?php echo $checkingBalance; ?></strong></h1>
+            <h1 align="center" id="checkingbalance"><strong><?php echo $checkingBalance; ?></strong></h1>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded" id="creditinfo">
             <h2 align="center" style="font-size: 2vw;">Current Credit Card Balance</h2> <br>
-            <h1 align="center" id="creditbalance"><strong>$<?php echo $creditBalance; ?></strong></h1>
+            <h1 align="center" id="creditbalance"><strong><?php echo $creditBalance; ?></strong></h1>
         </div>
         <div id="optionbuttons" style="margin-right: 15px; vertical-align: top;">
             <button class="accordion">Deposit Cash</button>
