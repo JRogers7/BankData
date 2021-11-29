@@ -15,7 +15,7 @@
         }
     }
     else {
-        $checkingBalance = "Could not retrieve balance.";
+        $checkingBalance = "Not available.";
     }
 ?>
 <?php
@@ -28,7 +28,7 @@
         }
     }
     else {
-        $creditBalance = "Could not retrieve balance.";
+        $creditBalance = "Not available.";
     }
 ?>
 
@@ -150,40 +150,72 @@
             <h2 align="center" style="font-size: 2vw;">Current Credit Card Balance</h2> <br>
             <h1 align="center" id="creditbalance"><strong><?php echo $creditBalance; ?></strong></h1>
         </div>
-        <div id="optionbuttons" style="margin-right: 15px; vertical-align: top;">
-            <button class="accordion">Deposit Cash</button>
-            <div class="panel">
-                <p> Deposit Money Using This Button
-                </p>
-            </div>
-            <button class="accordion">Withdraw Cash</button>
-            <div class="panel">
-                <p> Withdraw Money Using This Button
-                </p>
-            </div>
-            <button class="accordion">Transfer Money</button>
-            <div class="panel">
-                <p> Transfer Money Using This Button
-                </p>
+        <div id = "optionbuttons" style = "margin-right: 15px;">
+        <button class="accordion">Deposit Cash</button>
+        <div class="panel">
+            <form action="deposit.php">
+                <div class = "form-group form-inline">
+                    <label for="depositAmt">Deposit Amount: </label>
+                    <input type="text" id="depositAmt">
+                    <button type = "submit" class = "btn btn-secondary">Deposit</button>
+                </div>
+            </form>
+        </div>
+        <button class="accordion">Withdraw Cash</button>
+        <div class="panel">
+            <form action="withdraw.php">
+                <div class = "form-group form-inline">
+                    <label for="withdrawAmt">Withdraw Amount: </label>
+                    <input type="text" id="withdrawAmt">
+                    <button type = "submit" class = "btn btn-secondary">Withdraw</button>
+                </div>
+            </form>
+        </div>
+        <button class="accordion">Transfer Money</button>
+        <div class="panel">
+            <form action="transfer.php">
+                <div class = "form-group form-inline">
+                    <label for="receiverUsername">Receiving Person's Username: </label>
+                    <input type="text" id="receiverUsername">
+                    <br>
+                    <label for="transferAmt">Amount to Transfer: </label>
+                    <input type="text" id="transferAmt">
+                    <button type = "submit" class = "btn btn-secondary">Transfer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id = "optionbuttons" style = "margin-left: 15px;">
+        <button class="accordion">Make Payment</button>
+        <div class="panel">
+            <form action="payment.php">
+                <div class = "form-group form-inline">
+                    <label for="paymentAmt">Payment Amount: </label>
+                    <input type="text" id="paymentAmt">
+                    <button type = "submit" class = "btn btn-secondary">Pay Card</button>
+                </div>
+            </form>
+        </div>
+        <button class="accordion">View Credit Card Information</button>
+        <div class="panel">
+            <div class = "form-group form-inline">
+                <p><strong>Card Number: </strong></p>
+                <p><strong>CVV: </strong></p>
+                <p><strong>Credit Limit: </strong></p>
+                <p><strong>APR: </strong></p>
+                <p><strong>Expiration: </strong></p>
             </div>
         </div>
-        <div id="optionbuttons" style="margin-left: 15px;">
-            <button class="accordion">Make Payment</button>
-            <div class="panel">
-                <p> Make a payment on your Credit Card with this button.
-                </p>
-            </div>
-            <button class="accordion">View Credit Card Information</button>
-            <div class="panel">
-                <p> View your credit card information.
-                </p>
-            </div>
-            <button class="accordion">Request New Card</button>
-            <div class="panel">
-                <p> Change your credit card number.
-                </p>
-            </div>
+        <button class="accordion">Request New Card</button>
+        <div class="panel">
+            <form action="newcard.php">
+                <div class = "form-group form-inline">
+                    <p>Clicking the 'Request New Card' button below will change your card number and CVV, but your balance, APR, and other details will remain the same.</p>
+                    <button type = "submit" class = "btn btn-secondary">Request New Card</button>
+                </div>
+            </form>
         </div>
+    </div>
     </div>
 
 </body>
