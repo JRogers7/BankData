@@ -1,20 +1,16 @@
 <?php require "header.php"; require "config.php"; ?>
 
 <?php
-    $sql = "SELECT balance from Debit_Card WHERE username = ?";
+    $sql = "SELECT balance from Debit_Card WHERE username = '".$loggedOnUser."'";
+    $res = mysqli_query($link, $sql);
 
-    if($stmt = mysqli_prepare($link, $sql)) {
-        mysqli_stmt_bind_param($stmt, "s", $param_loggedOnUser);
-
-        $param_loggedOnUser = $loggedOnUser;
-
-        if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_store_result($stmt);
-
-            $checkingBalance = mysqli_stmt_fetch($stmt);
-
-            echo $checkingBalance;
+    if ($res) {
+        while ($newArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+            $checkingBalance = $newArray['balance'];
         }
+    }
+    else {
+        $checkingBalance = "Could not retrieve balance.";
     }
 ?>
 
