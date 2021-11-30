@@ -28,7 +28,7 @@
         }
     }
     else {
-        $creditBalance = "Not available.";
+        $creditBalance = "N/A";
     }
 ?>
 

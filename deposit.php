@@ -26,6 +26,6 @@ if (mysqli_query($link, $sqlUpdateChecking)) {
     echo "Balance updated successfully. The balance of your checking account is now $checkingBalance.";
     echo "You will be taken back to the homepage in 5 seconds.";
 }
-header( "url=homepage.php" ); 
+header("Refresh:0");
 
 ?>
