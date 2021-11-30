@@ -1,11 +1,12 @@
-<!-- this file will be used with the deposit button to add money to the checking account -->
+
 <?php require "header.php"; require "config.php"; ?>
 
 <?php
     if (isset($_SESSION["username"])) {
         $loggedOnUser = $_SESSION["username"];
+        echo $loggedOnUser;
     }
-    
+
 $depositAmt = $_POST['depositAmt'];
 
 $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
