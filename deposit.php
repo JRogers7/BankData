@@ -7,11 +7,11 @@
 
 $depositAmt = $_POST['depositAmt'];
 
-$sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
-$res = mysqli_query($link, $sql);
+$sqlGetBalance = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
+$resBalanace = mysqli_query($link, $sqlGetBalance);
 
-if (mysqli_num_rows($res) > 0) {
-    while ($newArray = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+if (mysqli_num_rows($resBalanace) > 0) {
+    while ($newArray = mysqli_fetch_array($resBalanace, MYSQLI_ASSOC)) {
         $checkingBalance = $newArray['balance'];
     }
 }
@@ -21,11 +21,11 @@ else {
 
 $checkingBalance = $checkingBalance + $depositAmt;
 
-$sql = "UPDATE Debit_Card SET balance = '{$checkingBalance}' WHERE username = '{$loggedOnUser}'";
-echo $sql;
-if (mysqli_query($link, $sql)) {
+$sqlUpdateChecking = "UPDATE Debit_Card SET balance = '{$checkingBalance}' WHERE username = '{$loggedOnUser}'";
+if (mysqli_query($link, $sqlUpdateChecking)) {
     echo "Balance updated successfully. The balance of your checking account is now $checkingBalance.";
     echo "You will be taken back to the homepage in 5 seconds.";
-    header("refresh:5; url=homepage.php");
+    header( "refresh:5; url=homepage.php" ); 
 }
+
 ?>
