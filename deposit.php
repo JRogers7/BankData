@@ -1,5 +1,5 @@
 
-<?php require "header.php"; require "config.php"; ?>
+<?php session_start(); require "header.php"; require "config.php"; ?>
 
 <?php
     if (isset($_SESSION["username"])) {
