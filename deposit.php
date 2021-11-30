@@ -4,8 +4,8 @@
 <?php
     if (isset($_SESSION["username"])) {
         $loggedOnUser = $_SESSION["username"];
-        echo (isset($_SESSION["username"]));
     }
+    echo (isset($_SESSION["username"]));
 
 $depositAmt = $_POST['depositAmt'];
 
