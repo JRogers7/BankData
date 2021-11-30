@@ -144,7 +144,7 @@
         <br>
         <div class="shadow p-3 mb-5 bg-white rounded" id="checkinginfo">
             <h2 align="center" style="font-size: 2vw;">Current Checking Balance</h2> <br>
-            <h1 align="center" id="checkingbalance"><strong><?php echo $checkingBalance; ?></strong></h1>
+            <h1 align="center" id="checkingbalance"><strong>$<?php echo $checkingBalance; ?></strong></h1>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded" id="creditinfo">
             <h2 align="center" style="font-size: 2vw;">Current Credit Card Balance</h2> <br>
