@@ -153,7 +153,7 @@
         <div id = "optionbuttons" style = "margin-right: 15px;">
         <button class="accordion">Deposit Cash</button>
         <div class="panel">
-            <form action="deposit.php" method = "get">
+            <form action="deposit.php" method = "post">
                 <div class = "form-group form-inline">
                     <label for="depositAmt">Deposit Amount: </label>
                     <input type="text" id="depositAmt" name ="depositAmt">
