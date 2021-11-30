@@ -170,7 +170,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else if ((trim($_POST["acctType"])) == "checking"){
         $sql = "SELECT username FROM Debit_Card where username = ?";
 
-        echo "seeing this means it tried to make checking account even though i dont want it to";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -202,7 +201,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else if ((trim($_POST["acctType"])) == "credit") {
         $sql = "SELECT username FROM Credit_Card where username = ?";
 
-        echo "seeing this means it did the correct thing and went to the credit card function";
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $username);
