@@ -3,10 +3,12 @@
 require "config.php" ?>
 
 <?php
-if (isset($_SESSION["username"])) {
-    $loggedOnUser = $_SESSION["username"];
-}
+    if (isset($_SESSION["username"])) {
+        $loggedOnUser = $_SESSION["username"];
+    }
+?>
 
+<?php
 $depositAmt = $_POST['depositAmt'];
 
 $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
