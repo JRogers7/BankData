@@ -348,7 +348,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form method="POST">
         <div class="bankicon" align="center"><i class="bi bi-bank fa-lg"></i></div>
-        <div class="titletext" align="center">BANKDATA TEST</div>
+        <div class="titletext" align="center">BANKDATA</div>
         <h2 align="center">Create an Account</h2>
         <p align="center">Already have an account? <a href="index.php" style="text-decoration: none;">Sign in now!</a>
         </p>
