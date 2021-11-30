@@ -24,7 +24,7 @@ $checkingBalance = $checkingBalance + $depositAmt;
 $sqlUpdateChecking = "UPDATE Debit_Card SET balance = '{$checkingBalance}' WHERE username = '{$loggedOnUser}'";
 if (mysqli_query($link, $sqlUpdateChecking)) {
     echo "Balance updated successfully. The balance of your checking account is now $checkingBalance.";
-    echo "You will be taken back to the homepage in 3s seconds.";
+    echo "You will be taken back to the homepage in 3 seconds.";
 }
 header("Refresh:0");
 
