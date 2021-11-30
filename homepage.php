@@ -163,7 +163,7 @@
         </div>
         <button class="accordion">Withdraw Cash</button>
         <div class="panel">
-            <form action="withdraw.php">
+            <form action="withdraw.php" method = "post">
                 <div class = "form-group form-inline">
                     <label for="withdrawAmt">Withdraw Amount: </label>
                     <input type="text" id="withdrawAmt" name ="withdrawAmt">
@@ -173,7 +173,7 @@
         </div>
         <button class="accordion">Transfer Money</button>
         <div class="panel">
-            <form action="transfer.php">
+            <form action="transfer.php" method = "post">
                 <div class = "form-group form-inline">
                     <label for="receiverUsername">Receiving Person's Username: </label>
                     <input type="text" id="receiverUsername">
@@ -188,7 +188,7 @@
     <div id = "optionbuttons" style = "margin-left: 15px;">
         <button class="accordion">Make Payment</button>
         <div class="panel">
-            <form action="payment.php">
+            <form action="payment.php" method = "post">
                 <div class = "form-group form-inline">
                     <label for="paymentAmt">Payment Amount: </label>
                     <input type="text" id="paymentAmt" name="paymentAmt">
@@ -208,7 +208,7 @@
         </div>
         <button class="accordion">Request New Card</button>
         <div class="panel">
-            <form action="newcard.php">
+            <form action="newcard.php" method = "post">
                 <div class = "form-group form-inline">
                     <p>Clicking the 'Request New Card' button below will change your card number and CVV, but your balance, APR, and other details will remain the same.</p>
                     <button type = "submit" class = "btn btn-secondary" name = "getNewCard">Request New Card</button>

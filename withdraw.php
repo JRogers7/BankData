@@ -18,6 +18,7 @@ if (mysqli_num_rows($resBalanace) > 0) {
 else {
     $checkingBalance = "N/A";
 }
+echo $withdrawAmt, $checkingBalance;
 
 if ($withdrawAmt <= $checkingBalance) {
     $checkingBalance = $checkingBalance - $withdrawAmt;
