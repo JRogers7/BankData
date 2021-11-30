@@ -3,6 +3,6 @@
 
 <?php
     $depositAmt = $_POST['depositAmt'];
-
-    echo $depositAmt;
+    
+    echo $depositAmt + 100;
 ?>
