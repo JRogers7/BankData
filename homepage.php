@@ -174,7 +174,7 @@
     /* Style the accordion panel. Note: hidden by default */
     .panel {
         padding: 0 18px;
-        background-color: white;
+        background-color: #d6ecf2;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-out;
