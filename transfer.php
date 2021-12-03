@@ -53,7 +53,7 @@ require "homepage.php"; ?>
     }
 
     $checkingBalance = $checkingBalance - $transferAmt;
-    $sqlDeductSender =  "UPDATE Debit_Card SET balance = '{$$checkingBalance}' WHERE username = '{$loggedOnUser}'";
+    $sqlDeductSender =  "UPDATE Debit_Card SET balance = '{$checkingBalance}' WHERE username = '{$loggedOnUser}'";
     echo $sqlDeductSender;
     if (mysqli_query($link, $sqlDeductSender)) {
         echo "Please refresh to view your updated balance.";
