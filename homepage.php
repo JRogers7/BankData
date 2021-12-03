@@ -108,6 +108,7 @@
     body {
         margin: auto;
         width: 80%;
+        background: #ADD8E6;
     }
 
     .bankicon {
