@@ -46,12 +46,14 @@ require "homepage.php"; ?>
     //update receiver's balance
     $receiverBalance = $receiverBalance + $transferAmt;
     $sqlTransfer = "UPDATE Debit_Card SET balance = '{$receiverBalance}' WHERE username = '{$receiverUsername}'";
+    echo $sqlTransfer;
     if (mysqli_query($link, $sqlTransfer)) {
         echo "Transfer initiated successfully";
     }
 
     $checkingBalance = $checkingBalance - $transferAmt;
     $sqlDeductSender =  "UPDATE Debit_Card SET balance = '{$$checkingBalance}' WHERE username = '{$loggedOnUser}'";
+    echo $sqlDeductSender;
     if (mysqli_query($link, $sqlDeductSender)) {
         echo "Please refresh to view your updated balance.";
     }
