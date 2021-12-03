@@ -266,10 +266,10 @@
         <div class="panel">
             <div class = "form-group form-inline">
                 <p><strong><?php echo "Card Number: $creditNum"; ?></strong></p>
-                <p><strong>CVV: </strong></p>
-                <p><strong>Credit Limit: </strong></p>
-                <p><strong>APR: </strong></p>
-                <p><strong>Expiration: </strong></p>
+                <p><strong><?php echo "CVV: $cvvNum"; ?></strong></p>
+                <p><strong><?php echo "Credit Limit: $creditLimit"; ?></strong></p>
+                <p><strong><?php echo "APR: $apr"; ?></strong></p>
+                <p><strong><?php echo "Expiration: $expiration"; ?></strong></p>
             </div>
         </div>
         <button class="accordion">Request New Card</button>
