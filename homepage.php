@@ -44,6 +44,59 @@
         $creditNum = "N/A";
     }
 ?>
+<?php
+    $sql = "SELECT cvv from Credit_Card WHERE username = '{$loggedOnUser}'";
+    $cvv_res = mysqli_query($link, $sql);
+
+    if (mysqli_num_rows($cvv_res) > 0) {
+        while ($cvvArray = mysqli_fetch_array($cvv_res, MYSQLI_ASSOC)) {
+            $cvvNum = $cvvArray['cvv'];
+        }
+    }
+    else {
+        $cvvNum = "N/A";
+    }
+?>
+<?php
+    $sql = "SELECT credit_limit from Credit_Card WHERE username = '{$loggedOnUser}'";
+    $creditLimit_res = mysqli_query($link, $sql);
+
+    if (mysqli_num_rows($creditLimit_res) > 0) {
+        while ($creditLimitArray = mysqli_fetch_array($creditLimit_res, MYSQLI_ASSOC)) {
+            $creditLimit = $creditLimitArray['credit_limit'];
+        }
+    }
+    else {
+        $creditLimit = "N/A";
+    }
+?>
+<?php
+    $sql = "SELECT apr from Credit_Card WHERE username = '{$loggedOnUser}'";
+    $apr_res = mysqli_query($link, $sql);
+
+    if (mysqli_num_rows($apr_res) > 0) {
+        while ($aprArray = mysqli_fetch_array($apr_res, MYSQLI_ASSOC)) {
+            $apr = $aprArray['apr'];
+        }
+    }
+    else {
+        $apr = "N/A";
+    }
+?>
+<?php
+    $sql = "SELECT expiration from Credit_Card WHERE username = '{$loggedOnUser}'";
+    $expiration_res = mysqli_query($link, $sql);
+
+    if (mysqli_num_rows($expiration_res) > 0) {
+        while ($expirationArray = mysqli_fetch_array($expiration_res, MYSQLI_ASSOC)) {
+            $expiration = $expirationArray['expiration'];
+        }
+    }
+    else {
+        $expiration = "N/A";
+    }
+?>
+
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
