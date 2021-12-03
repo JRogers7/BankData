@@ -144,11 +144,11 @@
         <br>
         <div class="shadow p-3 mb-5 bg-white rounded" id="checkinginfo">
             <h2 align="center" style="font-size: 2vw;">Current Checking Balance</h2> <br>
-            <h1 align="center" id="checkingbalance"><strong>$<?php echo $checkingBalance; ?></strong></h1>
+            <h1 align="center" id="checkingbalance"><strong><?php if ($checkingBalance != "N/A") {echo "$$checkingBalance"; } else {echo $checkingBalance;}  ?></strong></h1>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded" id="creditinfo">
             <h2 align="center" style="font-size: 2vw;">Current Credit Card Balance</h2> <br>
-            <h1 align="center" id="creditbalance"><strong><?php echo $creditBalance; ?></strong></h1>
+            <h1 align="center" id="creditbalance"><strong><?php if ($creditBalance != "N/A") {echo "$$creditBalance"; } else {echo $creditBalance;}  ?></strong></h1>
         </div>
         <div id = "optionbuttons" style = "margin-right: 15px;">
         <button class="accordion">Deposit Cash</button>
