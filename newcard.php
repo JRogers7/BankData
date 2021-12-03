@@ -22,5 +22,10 @@ require "homepage.php"; ?>
     if (mysqli_query($link, $sqlNewCard)) {
         echo "A new card has been issued. Please view your card information again to ensure the card number and CVV have changed.";
     }
-    header("Location: http://jonathancrogers.com/homepage.php");
+    header("Location: http://jonathancrogers.com/");
 ?>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
