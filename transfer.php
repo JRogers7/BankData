@@ -3,15 +3,18 @@ require "config.php";
 require "homepage.php"; ?>
 
 <?php
+    //establish logged on user
     if (isset($_SESSION["username"])) {
         $loggedOnUser = $_SESSION["username"];
     }
 
+    //vars will be used to store the receiver and amount of transfer
     $receiverUsername = $_POST['receiverUsername'];
     $transferAmt = $_POST['transferAmt'];
 
     echo $receiverUsername, $transferAmt;
 
+    //query to get sending user's balance
     $sqlMyBalance = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
     echo $sqlMyBalance;
     $myBalanace = mysqli_query($link, $sqlMyBalance);
@@ -23,6 +26,7 @@ require "homepage.php"; ?>
         }
     }
 
+    //query to get receiver's balance
     $sqlReceiverBalance = "SELECT balance from Debit_Card WHERE username = '{$receiverUsername}'";
     echo $sqlReceiverBalance;
     $receiverBalance = mysqli_query ($link, $sqlMyBalance);
@@ -34,12 +38,24 @@ require "homepage.php"; ?>
         }
     }
 
+    //alert user if they are trying to transfer more money than they have
     if ($transferAmt > $checkingBalance) { 
         echo "You are trying to transfer more money than you currently have in your checking account. Please try again.";
     }
 
+    //update receiver's balance
     $receiverBalance = $receiverBalance + $transferAmt;
-    $sqlTransfer = ""
+    $sqlTransfer = "UPDATE Debit_Card SET balance = '{$receiverBalance}' WHERE username = '{$receiverUsername}'";
+    if (mysqli_query($link, $sqlTransfer)) {
+        echo "Transfer initiated successfully";
+    }
+
+    $checkingBalance = $checkingBalance - $transferAmt;
+    $sqlDeductSender =  "UPDATE Debit_Card SET balance = '{$$checkingBalance}' WHERE username = '{$loggedOnUser}'";
+    if (mysqli_query($link, $sqlDeductSender)) {
+        echo "Please refresh to view your updated balance.";
+    }
+    header("Refresh:0");
     
 ?>
 
