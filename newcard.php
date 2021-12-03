@@ -22,5 +22,5 @@ require "homepage.php"; ?>
     if (mysqli_query($link, $sqlNewCard)) {
         echo "A new card has been issued. Please view your card information again to ensure the card number and CVV have changed.";
     }
-    header("Refresh:0");
+    header("location: homepage.php");
 ?>
