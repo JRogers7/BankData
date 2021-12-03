@@ -176,7 +176,7 @@
             <form action="transfer.php" method = "post">
                 <div class = "form-group form-inline">
                     <label for="receiverUsername">Receiving Person's Username: </label>
-                    <input type="text" id="receiverUsername">
+                    <input type="text" id="receiverUsername" name = "receiverUsername">
                     <br>
                     <label for="transferAmt">Amount to Transfer: </label>
                     <input type="text" id="transferAmt"name="transferAmt">
