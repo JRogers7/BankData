@@ -150,7 +150,7 @@
     }
 
     .accordion {
-        background-color: rgb(212, 212, 212);
+        background-color: rgb(236, 236, 236);
         color: #444;
         cursor: pointer;
         padding: 16px;
