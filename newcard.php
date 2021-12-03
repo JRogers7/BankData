@@ -8,6 +8,8 @@ require "homepage.php"; ?>
         $loggedOnUser = $_SESSION["username"];
     }
 
+    $cvvDigits = 3;
+    $cardNumDigits = 16;
     $cvv = rand(pow(10, $cvvDigits-1), pow(10, $cvvDigits)-1);
     $cardNum = rand(pow(10, $cardNumDigits-1), pow(10, $cardNumDigits)-1);
 
