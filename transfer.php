@@ -11,8 +11,9 @@ require "homepage.php"; ?>
     //vars will be used to store the receiver and amount of transfer
     $receiverUsername = $_POST['receiverUsername'];
     $transferAmt = $_POST['transferAmt'];
+    echo "Transfer Amount: $transferAmt";
+    echo "Receiver's Username: $receiverUsername";
 
-    echo $receiverUsername, $transferAmt;
 
     //query to get sending user's balance
     $sqlMyBalance = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
@@ -29,7 +30,7 @@ require "homepage.php"; ?>
     //query to get receiver's balance
     $sqlReceiverBalance = "SELECT balance from Debit_Card WHERE username = '{$receiverUsername}'";
     echo $sqlReceiverBalance;
-    $receiverBalance = mysqli_query ($link, $sqlMyBalance);
+    $receiverBalance = mysqli_query ($link, $sqlReceiverBalance);
 
     if (mysqli_num_rows($receiverBalance) > 0) {
         while ($newArray = mysqli_fetch_array($receiverBalance, MYSQLI_ASSOC)) {
