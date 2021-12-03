@@ -45,8 +45,8 @@ require "homepage.php"; ?>
     }
 
     //update receiver's balance
-    $receiverBalance = $receiverBalance + $transferAmt;
-    $sqlTransfer = "UPDATE Debit_Card SET balance = '{$receiverBalance}' WHERE username = '{$receiverUsername}'";
+    $receiverChecking = $receiverChecking + $transferAmt;
+    $sqlTransfer = "UPDATE Debit_Card SET balance = '{$receiverChecking}' WHERE username = '{$receiverUsername}'";
     echo $sqlTransfer;
     if (mysqli_query($link, $sqlTransfer)) {
         echo "Transfer initiated successfully";
