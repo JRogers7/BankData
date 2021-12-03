@@ -212,7 +212,7 @@
         <button class="accordion">View Credit Card Information</button>
         <div class="panel">
             <div class = "form-group form-inline">
-                <p><strong><?php echo "Card Number: " $creditNum; ?></strong></p>
+                <p><strong><?php echo "Card Number: $creditNum"; ?></strong></p>
                 <p><strong>CVV: </strong></p>
                 <p><strong>Credit Limit: </strong></p>
                 <p><strong>APR: </strong></p>
