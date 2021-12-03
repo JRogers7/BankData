@@ -327,6 +327,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
     <style>
+        body {
+            background: #d6ecf2;
+        }
         .bankicon {
             font-size: 120;
             margin-bottom: 10;
