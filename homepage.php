@@ -150,8 +150,8 @@
     }
 
     .accordion {
-        background-color: rgb(236, 236, 236);
-        color: #444;
+        background-color: rgb(90, 90, 90);
+        color: rgb(255, 255, 255);
         cursor: pointer;
         padding: 16px;
         width: 100%;
@@ -168,7 +168,7 @@
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     .active,
     .accordion:hover {
-        background-color: rgb(179, 179, 179);
+        background-color: rgb(68, 68, 68);
     }
 
     /* Style the accordion panel. Note: hidden by default */
