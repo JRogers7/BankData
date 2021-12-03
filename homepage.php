@@ -31,6 +31,19 @@
         $creditBalance = "N/A";
     }
 ?>
+<?php
+    $sql = "SELECT card_num from Credit_Card WHERE username = '{$loggedOnUser}'";
+    $cardNum_res = mysqli_query($link, $sql);
+
+    if (mysqli_num_rows($cardNum_res) > 0) {
+        while ($cardNumArray = mysqli_fetch_array($cardNum_res, MYSQLI_ASSOC)) {
+            $creditNum = $cardNumArray['card_num'];
+        }
+    }
+    else {
+        $creditNum = "N/A";
+    }
+?>
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -199,7 +212,7 @@
         <button class="accordion">View Credit Card Information</button>
         <div class="panel">
             <div class = "form-group form-inline">
-                <p><strong>Card Number: </strong></p>
+                <p><strong><?php echo "Card Number: " $creditNum; ?></strong></p>
                 <p><strong>CVV: </strong></p>
                 <p><strong>Credit Limit: </strong></p>
                 <p><strong>APR: </strong></p>

@@ -283,8 +283,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $param_apr = $apr;
                 $param_expiration = $expiration;
 
-                echo $param_username, $param_cardNum, $param_cvv, $param_balance, $param_creditLimit, $param_gracePeriod, $param_apr, $param_expiration;
-
                 if(mysqli_stmt_execute($stmt)){
                     // Redirect to login page
                     header("location: index.php");
