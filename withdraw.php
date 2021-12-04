@@ -24,6 +24,7 @@ if ($withdrawAmt <= $checkingBalance) {
 }
 else {
     echo "Oops! Your withdrawal request was more than your current checking account balance of $checkingBalance";
+    exit();
 }
 
 $sqlUpdateChecking = "UPDATE Debit_Card SET balance = '{$checkingBalance}' WHERE username = '{$loggedOnUser}'";
