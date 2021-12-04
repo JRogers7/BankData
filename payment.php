@@ -12,24 +12,20 @@ require "homepage.php"; ?>
 
     //query to get sending user's balance
     $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
-    echo $sql;
     $debitBalanace = mysqli_query($link, $sql);
 
     if (mysqli_num_rows($debitBalanace) > 0) {
         while ($chkArray = mysqli_fetch_array($debitBalanace, MYSQLI_ASSOC)) {
             $checkingBalance = $chkArray['balance'];
-            echo "Checking Balance: $checkingBalance";
         }
     }
     //query to get sending user's balance
     $sql = "SELECT balance from Credit_Card WHERE username = '{$loggedOnUser}'";
-    echo $sql;
     $creditBal = mysqli_query($link, $sql);
 
     if (mysqli_num_rows($creditBal) > 0) {
         while ($crArray = mysqli_fetch_array($creditBal, MYSQLI_ASSOC)) {
             $creditBalance = $crArray['balance'];
-            echo "Checking Balance: $checkingBalance";
         }
     }
 

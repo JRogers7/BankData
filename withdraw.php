@@ -18,7 +18,6 @@ if (mysqli_num_rows($resBalanace) > 0) {
 else {
     $checkingBalance = "N/A";
 }
-echo $withdrawAmt, $checkingBalance;
 
 if ($withdrawAmt <= $checkingBalance) {
     $checkingBalance = $checkingBalance - $withdrawAmt;
@@ -30,7 +29,7 @@ else {
 $sqlUpdateChecking = "UPDATE Debit_Card SET balance = '{$checkingBalance}' WHERE username = '{$loggedOnUser}'";
 if (mysqli_query($link, $sqlUpdateChecking)) {
     echo "Balance updated successfully. The balance of your checking account is now $checkingBalance.";
-    echo "You will be taken back to the homepage in 3 seconds.";
+    echo "Please refresh your page to view your updated balance.";
 }
 header("Refresh:0");
 
