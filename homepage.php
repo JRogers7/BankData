@@ -1,9 +1,10 @@
 <?php require "header.php"; require "config.php"; ?>
+
 <?php
     if (isset($_SESSION["username"])) {
         $loggedOnUser = $_SESSION["username"];
     }
-    ?>
+?>
 
 <?php
     $sql = "SELECT balance from Debit_Card WHERE username = '{$loggedOnUser}'";
@@ -18,6 +19,7 @@
         $checkingBalance = "N/A";
     }
 ?>
+
 <?php
     $sql = "SELECT balance from Credit_Card WHERE username = '{$loggedOnUser}'";
     $credit_res = mysqli_query($link, $sql);
